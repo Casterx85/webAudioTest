@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Web Audio Test">
+
+    <title>Daniel Casternado - Web Audio Test</title>
+
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div id="container">
+    <!-- RECORDER -->
+    <section id="recorder">
+      <h1>RECORDER</h1>
+      
+      <div id="rec">
+        <div id="screenRec">
+          <p id="duration">00:00:00</p>
+          <p id="stateRec">REC</p>
+        </div>
+
+        <div id="controlsRec" class="controls">
+          <div id="gainControlsRec">
+            <input type="range" id="volume" class="control-volume" min="0" max="2" value="1" list="gain-values" step="0.01" data-action="volume">
+            <datalist id="gain-values">
+              <option value="0" label="min">
+              <option value="2" label="max">
+            </datalist>
+            <label for="volume">VOL</label>
+      
+            <button id="btnMute" class="control-mute" data-mute="on" role="switch" aria-checked="false"> 
+              <span>Mute/Unmute</span>
+            </button>
+          </div>
+
+          <div id="buttonsRec">
+            <button id="btnRecord" data-start-rec role="switch" aria-checked="false">
+              <span>REC</span>
+            </button>
+            <label for="btnRecord">REC</label>
+
+            <button id="btnStopRecording" data-stop-rec role="switch" aria-checked="false">
+              <span>STOP</span>
+            </button>
+            <label for="btnStopRecording">STOP</label>
+          </div>
+
+          <div id="chooseMic">
+            <!-- Select microphone -->
+            <label for="devicesList">CHOOSE INPUT DEVICE:</label>
+            <select id="devicesList" name="devices" autofocus></select>
+          </div>
+          
+          <div id="speakersRec">
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- SPEAKERS -->
+    <section id="speakers">
+      <h1>BOOMBOX</h1>
+
+      <div id="boombox">
+        <div class="boombox-handle"></div>
+        
+        <div class="boombox-body">
+          <section id="controlsSpe" class="controls">
+            <input type="range" id="volumeSpe" class="control-volume" min="0" max="2" value="1" list="gain-vals" step="0.01" data-action="volume" />
+            <datalist id="gain-vals">
+              <option value="0" label="min">
+              <option value="2" label="max">
+            </datalist>
+            <label for="volumeSpe">VOL</label>
+      
+            <input type="range" id="panner" class="control-panner" list="pan-vals" min="-1" max="1" value="0" step="0.01" data-action="panner" />
+            <datalist id="pan-vals">
+              <option value="-1" label="left">
+              <option value="1" label="right">
+            </datalist>
+            <label for="panner">PAN</label>
+            
+            <button id="btnPower" class="control-power" role="switch" data-power="on">
+              <span>On/Off</span>
+            </button>
+          </section>
+      
+          <section class="tape controls">
+            <audio id="player" crossorigin="anonymous"></audio>
+            
+            <button data-playing="false" class="tape-controls-play" role="switch" aria-checked="false">
+              <span>Play/Pause</span>
+            </button>
+
+            <button data-sound="true" class="tape-controls-sound" role="switch" aria-checked="false">
+              <span>Mute/Unmute</span>
+            </button>
+
+            <button data-stop-spe class="tape-controls-stop">
+              <span>Stop</span>
+            </button>
+
+            <!-- Select filter -->
+            <label for="filter">FILTER:</label>
+            <select id="filter" name="filter">
+              <option value="lowpass">LOWPASS</option>
+              <option value="highpass">HIGHPASS</option>
+              <option value="bandpass">BANDPASS</option>
+              <option value="lowshelf">LOWSHELF</option>
+              <option value="highshelf">HIGHSHELF</option>
+              <option value="peaking">PEAKING</option>
+              <option value="notch" selected>NOTCH</option>
+              <option value="allpass">ALLPASS</option>
+            </select>
+          </section>
+        </div><!-- boombox-body -->
+      </div>
+    </section>
+  </div>    
+
+  <script src="assets/js/script.js" type="text/javascript"> </script>
+</body>
+</html>
