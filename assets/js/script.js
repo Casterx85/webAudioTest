@@ -154,7 +154,7 @@ const init = () => {
 
   // Stop Recording
   const stopRecording = () => {
-    mediaRecorder.stop();
+    if(mediaRecorder) mediaRecorder.stop();
     // Stop counter
     stopCounter();
   };
